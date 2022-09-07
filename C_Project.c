@@ -156,6 +156,7 @@ void main(){
 											printf("\nThis ID is not exist\n");
 											break;
 										}
+										/*if the patient does not have a reservation display error message and exit from the case*/
 										if(CheckReservation(&s,p_id)!=1){
 											printf("\nThis Patient does not have a reservation\n");
 											break;
