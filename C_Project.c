@@ -157,7 +157,7 @@ void main(){
 											break;
 										}
 										if(CheckReservation(&s,p_id)!=1){
-											printf("\nThis slot is not reserved\n");
+											printf("\nThis Patient does not have a reservation\n");
 											break;
 										}
 										
