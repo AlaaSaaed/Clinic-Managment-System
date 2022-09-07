@@ -1,5 +1,5 @@
 #include "STD_Types.h"
-
+#include "Private.h"
 
 
 typedef struct patient{
@@ -136,6 +136,7 @@ void CancelReservation(St_Reservation **head, u32 id){
 	}
 	else{
 		printf("This id isn't exist");
+		
 	}
 }
 
@@ -165,6 +166,8 @@ u16 CheckReservation(St_Reservation **head, u32 id){
 		return 0;
 	}
 }
+
+
 
 void CreateSlots(St_Reservation **head){
 	*head = (St_Reservation *)malloc(sizeof(St_Reservation));
