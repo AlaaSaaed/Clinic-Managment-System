@@ -18,7 +18,7 @@ void CreateSlots(St_Reservation **head);
 
 void main(){
 	
-	u16  choice, n;
+	u16 user_choice, admin_choice, choice;
 	St_Patient *h=NULL;
 	St_Reservation *s=NULL;
 	f32 slot;
@@ -27,7 +27,7 @@ void main(){
 	
 	/*declaring flag to exit from the system 
 	after entering wrong password for 3 times*/
-	u16 flag=2;
+	int flag=2;
 	
 	/*calling function to create timeslots list*/
 	CreateSlots(&s);
@@ -56,15 +56,15 @@ void main(){
 							
 							while(1){
 								printf("\nEnter 1 to Add new patient\nEnter 2 to Edit patient record\nEnter 3 to Reserve a slot with the doctor\nEnter 4 to Cancel reservation\nEnter 5 to exit\n");
-								scanf("%d",&choice);
+								scanf("%d",&admin_choice);
 								
 								/*exit from the loop if the admin enter 5*/
-								if(choice==5){
+								if(admin_choice==5){
 									flag=2;
 									break;
 								}
 								
-								switch(choice){
+								switch(admin_choice){
 									/*Add new patient record*/
 									case 1:
 										printf("\nEnter the ID: ");
@@ -126,10 +126,10 @@ void main(){
 										if(CheckReservation(&s,p_id)==1){
 											printf("This patient already has a reservation\n");
 											printf("\nEnter 1 if you want to cancel old reservation and make new reservation\nEnter 2 to cancel operation\n");
-											scanf("%d",&n);
+											scanf("%d",&choice);
 											
 											/*change the old reservation if the patient wants to*/
-											if(n==1){
+											if(choice==1){
 												
 												CancelReservation(&s,p_id);
 											}
@@ -156,9 +156,17 @@ void main(){
 											printf("\nThis ID is not exist\n");
 											break;
 										}
+										if(CheckReservation(&s,p_id)!=1){
+											printf("\nThis slot is not reserved\n");
+											break;
+										}
 										
-										CancelReservation(&s,p_id);
-										printf("\n***** Reservation Canceled *****\n");
+										if(CheckID(&h,p_id)!=0){
+											CancelReservation(&s,p_id);
+											printf("\n***** Reservation Canceled *****\n");
+										}
+										
+										
 										break;	
 										
 									default:
@@ -187,14 +195,14 @@ void main(){
 
 					while(1){
 						printf("\nEnter 1 to view patient record\nEnter 2 to view today’s reservations\nEnter 3 to exit\n");
-						scanf("%d",&choice);
+						scanf("%d",&user_choice);
 						
 						/*exit from the loop if the user enter 3*/
-						if(choice==3){
+						if(user_choice==3){
 							break;
 						}
 						
-						switch(choice){
+						switch(user_choice){
 							/*View patient record*/
 							case 1:
 								printf("\nEnter the patient ID you want to view: ");
@@ -234,6 +242,13 @@ void main(){
 	
 
 }
+
+
+
+
+
+
+
 
 
 
