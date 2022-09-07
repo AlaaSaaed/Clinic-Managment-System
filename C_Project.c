@@ -56,10 +56,10 @@ void main(){
 							
 							while(1){
 								printf("\nEnter 1 to Add new patient\nEnter 2 to Edit patient record\nEnter 3 to Reserve a slot with the doctor\nEnter 4 to Cancel reservation\nEnter 5 to exit\n");
-								scanf("%d",&admin_choice);
+								scanf("%d",&choice);
 								
 								/*exit from the loop if the admin enter 5*/
-								if(admin_choice==5){
+								if(choice==5){
 									flag=2;
 									break;
 								}
@@ -187,10 +187,10 @@ void main(){
 
 					while(1){
 						printf("\nEnter 1 to view patient record\nEnter 2 to view today’s reservations\nEnter 3 to exit\n");
-						scanf("%d",&user_choice);
+						scanf("%d",&choice);
 						
 						/*exit from the loop if the user enter 3*/
-						if(user_choice==3){
+						if(choice==3){
 							break;
 						}
 						
