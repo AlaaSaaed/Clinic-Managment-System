@@ -18,7 +18,7 @@ void CreateSlots(St_Reservation **head);
 
 void main(){
 	
-	u16 user_choice, admin_choice, n;
+	u16  choice, n;
 	St_Patient *h=NULL;
 	St_Reservation *s=NULL;
 	f32 slot;
@@ -27,7 +27,7 @@ void main(){
 	
 	/*declaring flag to exit from the system 
 	after entering wrong password for 3 times*/
-	int flag=2;
+	u16 flag=2;
 	
 	/*calling function to create timeslots list*/
 	CreateSlots(&s);
@@ -64,7 +64,7 @@ void main(){
 									break;
 								}
 								
-								switch(admin_choice){
+								switch(choice){
 									/*Add new patient record*/
 									case 1:
 										printf("\nEnter the ID: ");
@@ -194,7 +194,7 @@ void main(){
 							break;
 						}
 						
-						switch(user_choice){
+						switch(choice){
 							/*View patient record*/
 							case 1:
 								printf("\nEnter the patient ID you want to view: ");
