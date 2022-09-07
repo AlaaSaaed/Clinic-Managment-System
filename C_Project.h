@@ -1,4 +1,7 @@
+#ifndef C_PROJECT_H
+#define C_PROJECT_H
 #include "STD_Types.h"
+
 
 
 typedef struct patient{
@@ -192,3 +195,4 @@ void CreateSlots(St_Reservation **head){
 }
 	
 
+#endif
